@@ -1,9 +1,9 @@
 import express from "express"
 import dotenv from "dotenv" 
 import cors from "cors"
-import mongoose from "mongoose"
 import userRoutes from './routes/userRoutes.js'
 import customerRoutes from './routes/customerRoutes.js'
+import orderRoutes from "./routes/orderRoutes.js"
 import connectDB from "./db.js"
 
 dotenv.config()
@@ -23,6 +23,9 @@ app.use('/api/users', userRoutes);
 ///customers router
 app.use('/api/customer',  customerRoutes);
 // app.user()
+//order routes
+app.use('/api/orders',  orderRoutes);
+
 
 const port = process.env.PORT || 5000
 app.listen(port, ()=> console.log(`Server Listening On ${port}`)
